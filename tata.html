@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dzień Ojca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeInDown 1.2s ease-out;
+    }
+
+    p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #ff3b2e;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 220px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Najlepszemu Tacie na Świecie</h1>
+  <p>
+    Tato, jesteś dla mnie wzorem siły, mądrości i serca. Dziękuję Ci za wszystko, co robisz.
+    Z okazji Dnia Ojca życzę Ci zdrowia, szczęścia i dumy ze mnie, bo ja jestem dumny z Ciebie każdego dnia.
+  </p>
+
+  <button class="button" onclick="playSurprise()">🎵 Kliknij tu, Tato</button>
+
+  <div class="gallery">
+    <img src="1.jpeg" alt="Tata 1">
+    <img src="tatat.jpeg" alt="Tata 2">
+    <img src="tat.jpeg" alt="Tata 3">
+  </div>
+
+  <footer>
+    Stworzone z miłością przez Twoje dziecko ❤️
+  </footer>
+
+  <audio id="audio" src="tata123.mp3"></audio>
+  <script>
+    function playSurprise() {
+      const audio = document.getElementById('audio');
+      audio.play();
+      alert("Kocham Cię, Tato! ❤️");
+    }
+  </script>
+</body>
+</html>
