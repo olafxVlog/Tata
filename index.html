@@ -114,5 +114,51 @@
       alert("Kocham Cię, Tato! ❤️");
     }
   </script>
+  <<div id="heart-game" style="text-align: center; margin-top: 50px;">
+    <button id="heartBtn" style="font-size: 60px; border: none; background: none; cursor: pointer;">
+      ❤️
+    </button>
+    <p id="clickCount" style="margin-top: 10px;">Kliknięcia: 0</p>
+    <p id="loveMsg" style="display: none; font-size: 24px; font-weight: bold; margin-top: 20px;">
+      Kocham Cię, Tato!
+    </p>
+    <img id="surpriseImg" src="3tata.jpeg" alt="Tata surprise" style="display: none; margin-top: 20px; max-width: 300px; border-radius: 12px;" />
+  </div>
+  
+  <script>
+    let heartClicks = 0;
+    const heartBtn = document.getElementById('heartBtn');
+    const loveMsg = document.getElementById('loveMsg');
+    const clickCount = document.getElementById('clickCount');
+    const surpriseImg = document.getElementById('surpriseImg');
+  
+    heartBtn.addEventListener('click', () => {
+      heartClicks++;
+      clickCount.textContent = "Kliknięcia: " + heartClicks;
+  
+      if (heartClicks === 5) {
+        loveMsg.style.display = 'block';
+        setTimeout(() => {
+          loveMsg.style.display = 'none';
+        }, 3000); // znika po 3 sekundach
+      }
+  
+      if (heartClicks === 15) {
+        surpriseImg.style.display = 'block';
+        setTimeout(() => {
+          surpriseImg.style.display = 'none';
+        }, 3000); // znika po 3 sekundach
+      }
+  
+      if (heartClicks >= 18) {
+        heartClicks = 0;
+        clickCount.textContent = "Kliknięcia: 0";
+      }
+    });
+  </script>
+  
+  
+  
+  
 </body>
 </html>
