@@ -85,6 +85,14 @@
       font-size: 0.9rem;
       color: #ccc;
     }
+    @keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+#heartBtn {
+  animation: beat 1s infinite;
+}
   </style>
 </head>
 <body>
@@ -101,7 +109,54 @@
     <img src="tatat.jpeg" alt="Tata 2">
     <img src="tat.jpeg" alt="Tata 3">
   </div>
-
+  <div id="father-days" style="margin-top: 60px; font-size: 1.5rem; color: white;">
+    <div style="margin-bottom: 30px;">
+      <div>Tata jest tatą Olafa od:</div>
+      <div id="olafCounter" style="font-size: 48px; font-weight: bold;">0</div>
+      <div style="font-size: 18px;">dni</div>
+    </div>
+    <div>
+      <div>Tata jest tatą Hugo od:</div>
+      <div id="hugoCounter" style="font-size: 48px; font-weight: bold;">0</div>
+      <div style="font-size: 18px;">dni</div>
+    </div>
+  </div>
+  
+  <script>
+    // Funkcja licząca dni od daty
+    function daysSince(dateStr) {
+      const today = new Date();
+      const start = new Date(dateStr);
+      const diff = today - start;
+      return Math.floor(diff / (1000 * 60 * 60 * 24));
+    }
+  
+    // Animacja licznika od 0 do target liczby
+    function animateCounter(element, target, duration = 2000) {
+      let start = 0;
+      const stepTime = Math.abs(Math.floor(duration / target));
+      const timer = setInterval(() => {
+        start += 1;
+        element.textContent = start;
+        if (start >= target) {
+          clearInterval(timer);
+        }
+      }, stepTime);
+    }
+  
+    const olafBorn = "2009-05-03";
+    const hugoBorn = "2018-10-01";
+  
+    const olafDays = daysSince(olafBorn);
+    const hugoDays = daysSince(hugoBorn);
+  
+    const olafCounter = document.getElementById("olafCounter");
+    const hugoCounter = document.getElementById("hugoCounter");
+  
+    animateCounter(olafCounter, olafDays);
+    animateCounter(hugoCounter, hugoDays);
+  </script>
+  
   <footer>
     Stworzone z miłością przez Twoje dziecko ❤️
   </footer>
@@ -156,6 +211,16 @@
       }
     });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js">
+if (heartClicks >= 18) {
+  confetti();
+  heartClicks = 0;
+  clickCount.textContent = "Kliknięcia: 0";
+}
+
+
+  </script>
+
   
   
   
